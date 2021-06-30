@@ -1,0 +1,148 @@
+
+<odoo>
+    <template id="herencia_product_price_v1" inherit_id="website_sale.product_price">
+        <xpath expr="//*[hasclass('product_price')]" position="replace">     
+            <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+        </xpath>
+    </template>
+
+    <template id="herencia_product_item_v1" inherit_id="website_sale.products_item">
+        <xpath expr="//*[hasclass('product_price')]" position="replace">     
+            <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+        </xpath>
+    </template>
+
+    <template id="herencia_sale_product_v1" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']" position="inside">     
+            <!-- <a href="/shop/terms">Click en Cursos</a><br/>  -->
+            Click en Cursos (sin lo anterior no aparece el vinculo y el texto)
+            Para abrir mas ejercicios
+        </xpath>
+    </template>
+</odoo>
+
+
+<!--
+FUNCIONO ESTO (OJO CON REPLACE)
+
+
+--> 
+
+
+<!--
+
+<template id="product_custom_text" inherit_id="website_sale.product" active="True" customize_show="True" name="Terms and Conditions">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <p class="text-muted">
+                <a href="/shop/terms">Terms and Conditions</a><br/>
+                30-day money-back guarantee<br/>
+                Shipping: 2-3 Business Days
+            </p>
+        </xpath>
+</template> 	
+
+
+FUNCIONO PARA LA PRIMERA PAGINA
+<odoo>
+    <template id="herencia_product_price_v7" inherit_id="website_sale.products_item">
+        <xpath expr="//*[hasclass('product_price')]" position="replace">     
+            <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+        </xpath>
+    </template>
+</odoo>
+
+el problema puede ser los replace q ya no deja q trabaje
+
+-->  
+
+<!--
+lo que estoy probando
+<span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+
+no funca
+<span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+            <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>   
+
+            <xpath expr="//*[hasclass('product_price mt16')]" position="after">     
+no funciona con mt16.  ver como se puede trabajar con div o con class
+            <div class="oe_subdescription" contenteditable="false">
+                <div itemprop="description" t-field="product.description_sale"/>
+            </div>
+ -->
+
+
+
+<!-- <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price mt16"> 
+*** aqui no hay class.   si hay al final
+<template id="products_description" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Product Description">
+        <xpath expr="//*[hasclass('product_price')]" position="after">
+            <div class="oe_subdescription" contenteditable="false">
+                <div itemprop="description" t-field="product.description_sale"/>
+            </div>
+        </xpath>
+    </template>      
+
+
+se quito esto del cuerpo q puede ir arriba
+    <p class="text-muted">
+                <a href="/shop/terms">Prueba</a><br/>
+                28/06/2021<br/>
+                varios
+            </p>
+
+ -->
+
+
+
+
+
+
+
+
+
+<!--      // funciono 
+<odoo>
+    <template id="herencia_product_v1" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <p class="text-muted">
+                <a href="/shop/terms">Prueba</a><br/>
+                28/06/2021<br/>
+                varios
+            </p>
+        </xpath>
+    </template>
+</odoo>
+-->
+
+
+<!--
+<odoo>
+    Funcionó con la herencia a ingreso de usuario con el mensaje en el pie de pagina: 'Bienvenido a ODOO  ...... etc'.
+            
+    <template id="website_sale_promotion1111" inherit_id="website_sale.brand_promotion">
+        <xpath expr="//t[@t-call='web.brand_promotion_message']" position="replace">
+            <t t-call="web.brand_promotion_message">
+                <t t-set="_message">											
+                    Create de ANIBITAL											
+                </t>	
+            </t>										
+        </xpath>
+    </template>
+</odoo>    
+-->
+
+<!--  <template id="product" name="Product" track="1">  -->
+
+ <!-- 
+        <xpath expr="//*[hasclass('js_product js_main_product')]" position="replace">
+        </xpath>
+-->
+
+
+<!-- 
+<xpath expr="//*[hasclass('product_price')]" position="after">
+            <div class="oe_subdescription" contenteditable="false">
+                <div itemprop="description" t-field="product.description_sale"/>
+            </div>
+        </xpath>
+-->        
